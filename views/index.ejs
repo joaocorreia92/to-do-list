@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>To do list</title>
-</head>
-<body>
-  <h1>Hello, world!</h1>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>To do list</title>
+  </head>
+  <body>
+    <header>
+      <h1>To do list</h1>
+
+        <% if (task == null) { %>
+        <form id="new-task-form" action="/create" method="post">
+          <input type="text" name="task" id="task" placeholder="What do you have planned?" />
+          <button type="submit" id="add-btn">Add task</button>
+        </form>
+        <% } else { %>
+        <form id="new-task-form" action="/updateTask/<%= task._id %>" method="post">
+          <input type="text" name="task" id="task" value="<%= task.task %>" />
+          <button type="submit" id="new-task-submit" value="Update">Update</button>
+        </form>
+        <% } %>
+
+    </header>
+
+    <main>
+      <section class="task-list">
+        <h2>Tasks</h2>
+        <ul id="tasks">
+          <% tasksList.forEach((task) => { %>
+          <li id="task">
+            <%= task.task %> | <%= task.date.toLocaleDateString('pt-BR') %>
+            <a class="edit-btn" href="/getById/<%= task._id %>/update">Edit</a>
+            <a class="delete-btn" href="/getById/<%= task._id %>/delete">Delete</a>
+          </li>
+          <% }) %>
+        </ul>
+      </section>
+    </main>
+
+    <% if (taskDelete != null) { %>
+    <section id="modal">
+      <div id="card">
+        <a href="/">x</a>
+        <h2>Confirm</h2>
+        <hr>
+        <p>Do you realy want to delete the task: <%= taskDelete.task %>?</p>
+        <a href="/">No</a>
+        <a href="/deleteTask/<%= taskDelete._id %>">Yes</a>
+      </div>
+    </section>
+    <% } %>
+    <script src="script.js"></script>
+
+  </body>
 </html>
