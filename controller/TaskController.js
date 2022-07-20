@@ -32,7 +32,6 @@ const getById = async (req, res) => {
       const taskDelete = await Task.findOne({ _id: req.params.id });
       res.render("index", { task: null, taskDelete, tasksList });
     }
-    
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
@@ -50,12 +49,23 @@ const updateTask = async (req, res) => {
 
 const deleteTask = async (req, res) => {
   try {
-    await Task.deleteOne({_id: req.params.id})
-    res.redirect("/")
+    await Task.deleteOne({ _id: req.params.id });
+    res.redirect("/");
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
-}
+};
+
+const taskCheck = async (req, res) => {
+  try {
+    const task = await Task.findOne({ _id: req.params.id });
+    task.check ? (task.check = false) : (task.check = true);
+    await Task.updateOne({ _id: req.params.id }, task);
+    res.redirect("/");
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
 
 module.exports = {
   getAllTasks,
@@ -63,4 +73,5 @@ module.exports = {
   getById,
   updateTask,
   deleteTask,
+  taskCheck,
 };

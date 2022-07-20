@@ -88,6 +88,7 @@ ul li {
 ul li a {
   text-decoration: none;
   color: var(--light);
+  padding-left: 2rem;
 }
 
 ul li span {
@@ -230,4 +231,33 @@ div#btns a#yes-btn {
 div#btns a#yes-btn:hover {
   background-color: #00aa2a;
   color: var(--light);
+}
+
+ul li.check-true {
+  background-color: var(--dark);
+  color: var(--light);
+  text-decoration: line-through;
+}
+
+ul li a.check-true::before {
+  content: "";
+  position: absolute;
+  border: #FFF solid;
+  top: 17px;
+  left: 16px;
+  height: 15px;
+  width: 7px;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+ul li a.check-false::before {
+  content: "";
+  position: absolute;
+  border: #FFF solid;
+  top: 20px;
+  left: 16px;
+  height: 13px;
+  width: 13px;
+  border-width: 2px 2px;
 }
