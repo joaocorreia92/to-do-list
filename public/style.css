@@ -3,42 +3,231 @@
   --darker: #1F2937;
   --darkest: #111827;
   --gray: #6B7280;
+  --grayStronger: #5a5a5a;
   --light: #EEE;
-  --pink: #EC4899;
   --purple: #8B5CF6;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
   font-family: 'Fira sans', sans-serif;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: var(--dark);
-  color: #FFF;
+  background-color: var(--dark);
+  width: 100%;
+  height: 100%;
+  color: var(--light);
 }
 
 header {
-  padding: 2rem 1rem;
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
+  background-color: var(--darkest);
+  padding: 3rem;
+  margin: .5rem;
+  text-align: center;
 }
 
 header h1 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--grey);
-  margin-bottom: 1rem;
+  padding-bottom: 3rem;
 }
 
-main {
-  padding: 2rem 1rem;
-  max-width: 800px;
-  width: 100%;
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 70%;
+  padding: .6rem;
+  font-size: 1rem;
+  outline: none;
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+button {
+  padding: .6rem;
+  width: 25%;
+  background-color: var(--dark);
+  color: var(--gray);
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--purple);
+  color: var(--light);
+}
+
+section#tasks-container {
+  margin: 5rem;
+
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  position: relative;
+  padding: .5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 1.3rem;
+  background-color: var(--darker);
+}
+
+ul li a {
+  text-decoration: none;
+  color: var(--light);
+}
+
+ul li span {
+  color: var(--gray);
+  font-style: italic;
+  font-size: .8rem;
+  padding-left: 1rem;
+}
+
+ul li div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+ul li:nth-child(odd) {
+  background-color: var(--dark)
+}
+
+ul li:hover {
+  background-color: var(--grayStronger);
+}
+
+a.edit-btn {
+  padding: .5rem;
+  text-decoration: none;
+  color: #ccc;
+  transition: all .3s ease-in-out;
+}
+
+a.edit-btn:hover {
+  background-color: var(--purple);
+  color: var(--light);
+}
+
+a.delete-btn {
+  padding: .5rem;
+  text-decoration: none;
+  color: #ccc;
+  transition: all .3s ease-in-out;
+}
+
+a.delete-btn:hover {
+  background-color: crimson;
+  color: var(--light);
+}
+
+section#modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #00000080;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+div#card {
+  width: 30rem;
+  position: fixed;
+  background-color: var(--dark);
+}
+
+div#head-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+div#card h2 {
+  margin: 0;
+}
+
+div#card a#close-modal {
+  color: var(--light);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: all .3s ease-in-out;
+}
+
+div#card a#close-modal:hover {
+  background-color: crimson;
+  border-radius: 5rem;
+  padding: 0 .3rem;
+}
+
+div#card hr {
+  width: 90%;
   margin: 0 auto;
+  border-color: var(--dark);
+}
+
+div#card p {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+div#btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+div#btns a {
+  text-decoration: none;
+  padding: .5rem;
+  width: 7rem;
+  text-align: center;
+  background-color: var(--dark);
+  font-size: 1.1rem;
+}
+
+div#btns a#not-btn {
+  color: crimson;
+  border: solid 1px crimson;
+  margin-right: 1rem;
+  transition: all .3s ease-in-out;
+}
+
+div#btns a#not-btn:hover {
+  background-color: crimson;
+  color: var(--light);
+}
+
+div#btns a#yes-btn {
+  color: #00aa2a;
+  border: solid 1px #00aa2a;
+  margin-right: 1rem;
+  transition: all .3s ease-in-out;
+}
+
+div#btns a#yes-btn:hover {
+  background-color: #00aa2a;
+  color: var(--light);
 }
