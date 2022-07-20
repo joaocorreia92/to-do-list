@@ -14,10 +14,6 @@ WEB Browser
 
 Download this repository to you PC and run: **"npm install"** for testing and editing.
 
-## 📦 Desenvolvimento
-
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
-
 ## 🛠️ Built with
 
 * JavaScritp
