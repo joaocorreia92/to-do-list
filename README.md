@@ -8,15 +8,16 @@ HEROKU - https://todolist-jpcb.herokuapp.com/
 
 ### 📋 Pré-requisitos
 
-WEB Browser
+* WEB Browser
+* Node.js
 
 ### 🔧 Instalação
 
-Download this repository to you PC and run: **"npm install"** for testing and editing.
+Clone this repository in you PC and run: **"npm install"** with cmd on the respective folder, then run **npm run dev** for editing.
 
 ## 🛠️ Built with
 
-* JavaScritp
-* CSS
 * Node.js
+* ejs
+* CSS
 * MongoDB Atlas
