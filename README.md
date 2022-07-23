@@ -13,11 +13,11 @@ HEROKU - https://todolist-jpcb.herokuapp.com/
 
 ### 🔧 Instalação
 
-Clone this repository in you PC and run: **"npm install"** with cmd on the respective folder, then run **npm run dev** for editing.
+Clone this repository in you PC and run: **npm install** with cmd on the respective folder, then run **npm run dev** for editing.
 
 ## 🛠️ Built with
 
 * Node.js
-* ejs
+* EJS
 * CSS
 * MongoDB Atlas
